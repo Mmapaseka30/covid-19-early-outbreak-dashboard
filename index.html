@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COVID-19 Early Outbreak Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">PUBLIC HEALTH • HISTORICAL DATA</p>
+        <h1>COVID-19 Early Outbreak Dashboard</h1>
+        <p class="subtitle">Tracking the early outbreak across selected countries · 1 February–31 March 2020</p>
+      </div>
+      <div class="period-badge">FEB — MAR 2020</div>
+    </header>
+
+    <section class="toolbar panel">
+      <label for="countrySelect">Select country</label>
+      <select id="countrySelect" aria-label="Select country">
+        <option>China</option><option>Italy</option><option>South Korea</option>
+        <option>United States</option><option>South Africa</option>
+      </select>
+      <label for="dateRange">Timeline end date <span id="dateValue">31 Mar 2020</span></label>
+      <input id="dateRange" type="range" min="0" max="0" value="0">
+      <button id="resetButton" type="button">Reset timeline</button>
+    </section>
+
+    <section class="metrics" aria-label="Key metrics">
+      <article class="metric-card confirmed"><span>Confirmed cases</span><strong id="confirmed">—</strong><small>Latest reported total</small></article>
+      <article class="metric-card deaths"><span>Deaths</span><strong id="deaths">—</strong><small>Latest reported total</small></article>
+      <article class="metric-card recovered"><span>Recoveries</span><strong id="recovered">—</strong><small>Latest reported total</small></article>
+      <article class="metric-card active"><span>Active cases</span><strong id="active">—</strong><small>Confirmed − deaths − recoveries</small></article>
+    </section>
+
+    <section class="panel chart-panel">
+      <div class="section-heading"><div><p class="eyebrow">OUTBREAK OVER TIME</p><h2>Cumulative cases</h2></div><span id="countryLabel" class="country-chip">China</span></div>
+      <div class="chart-wrap"><canvas id="trendChart" aria-label="Cumulative cases line chart"></canvas></div>
+    </section>
+
+    <section class="panel chart-panel">
+      <div class="section-heading"><div><p class="eyebrow">CHANGE BETWEEN OBSERVATIONS</p><h2>New confirmed cases</h2></div></div>
+      <p class="chart-note">Bars show the increase in cumulative confirmed cases since the previous available data point. The supplied JSON contains periodic snapshots, not a record for every day, so these are interval increases—not exact daily counts.</p>
+      <div class="chart-wrap short"><canvas id="dailyChart" aria-label="New confirmed cases bar chart"></canvas></div>
+    </section>
+
+    <footer><span>Source: Johns Hopkins CSSE COVID-19 Data Repository (as identified in supplied dataset).</span><span id="dataStatus">Loading data…</span></footer>
+  </main>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
