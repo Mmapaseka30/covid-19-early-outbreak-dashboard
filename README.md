@@ -48,9 +48,3 @@ The dataset metadata identifies the COVID-19 Data Repository by Johns Hopkins CS
 7. Check the browser developer console for errors.
 
 ## Evidence screenshots
-Capture screenshots after running the dashboard for China, Italy and South Africa at minimum. Suggested filenames:
-- `screenshots/china.png`
-- `screenshots/italy.png`
-- `screenshots/south-africa.png`
-
-The `screenshots/` folder is included as a placeholder; add your actual browser screenshots before submission.
